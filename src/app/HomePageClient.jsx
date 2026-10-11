@@ -84,15 +84,14 @@ const evenIf = [
 const about = {
     greeting: "Hi, I'm Anushka.",
     paragraphs: [
-        'I grew up in Jhansi, a small town in Uttar Pradesh, in a very conservative environment and a dysfunctional upbringing. I was shy and insecure. I was bullied, my teachers rejected me, and nobody believed in me. I never liked my life.',
-        'I got into toxic friendships and lost myself so completely that I no longer wanted the life I was living. At 19, I took my first step and left my hometown. I had no idea my entire life was about to change.',
-        'By 21, I had been through the most painful heartbreak of my life. It was a karmic relationship, and it forced me to change.',
-        'At 23, I went through my first spiritual awakening. I finally understood what was wrong: why I kept attracting the same kind of people, and why so many painful things kept happening to me.',
-        'I told myself the old version of me had to die, so that a new one could be born.',
-        'By 24, I had left two corporate jobs. I was exhausted and depressed, and I did not know how to rebuild my life. I had no choice left except to heal.',
-        'You may not believe this, but I used to dream about the life I am living now. Looking back, I was spiritually protected. The universe and God kept me away from situations that could have broken me.',
-        'Today I live in Mumbai, speak to a community of nearly 100,000, and have worked with more than 200 brands. My life feels like I have been reborn.',
-        'That is why I started Rebirth Club in 2025. If I had not been protected, I would not be here telling other women this: everything happens for a reason, and you can always rebuild your life if you want to.',
+        'I grew up in Jhansi, a small town in Uttar Pradesh, in a very conservative environment and a dysfunctional upbringing. I did not come from privilege. I was shy and insecure, I was bullied, and I believed I did not deserve anything.',
+        'At 19, I got into the worst relationship of my life. By 21, I had been through a heartbreak so painful that it forced me to change.',
+        'At 22, I got an offer letter from Accenture in Mumbai. I landed in a big city with no idea how much my life was about to change.',
+        'At 23, I went through my biggest spiritual awakening. I came close to the universe, and I began to see patterns in myself that I never knew existed: why I kept attracting the same toxic, karmic relationships and friendships, and the same kind of problems.',
+        'I escaped one identity and built a completely new one. I was reborn.',
+        'By 24, I had left corporate completely, because I knew the universe wanted more from me. I believe I was put on this earth for a purpose.',
+        'Today I cannot find that shy, insecure girl in me any more. I live in a big city, with confidence, purpose and a life I love. I am manifesting my dream relationship, and I am going to have it all, on my own.',
+        'I made this life out of extreme pain and suffering. In 2025 I started Rebirth Club, because that is what it is about: being reborn. You can always rebuild your life if you want to.',
     ],
     // Index of the paragraph shown as the pull quote.
     turningPoint: 4,
