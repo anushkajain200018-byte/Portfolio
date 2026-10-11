@@ -10,6 +10,10 @@ import TestimonialsSection from '../components/TestimonialsSection';
 
 import profileBackground from '../assets/new-profile-backgroud.jpg';
 import storyPortrait from '../assets/Linkedin_Profile_4.png';
+import journeySummit from '../assets/journey/summit.jpg';
+import journeyAccenture from '../assets/journey/accenture.jpg';
+import journeyOnStage from '../assets/journey/on-stage.jpg';
+import journeyStudentTeam from '../assets/journey/student-team.jpg';
 
 /* ── Content ─────────────────────────────────────────────────────
    Everything a visitor reads lives here, so the copy can be changed
@@ -95,6 +99,47 @@ const about = {
     ],
     // Index of the paragraph shown as the pull quote.
     turningPoint: 4,
+};
+
+// Photos shown under the About story. `wide` photos take two columns.
+// `position` keeps Anushka in frame when a photo is cropped to fit.
+const journey = {
+    heading: 'The Woman I Became',
+    intro: 'The new version of me did things the old me never thought she could. I spoke on stages, got into a multinational company, and became a version of myself I never knew I could be.',
+    photos: [
+        {
+            src: journeySummit,
+            alt: 'Anushka speaking into a microphone on stage at an Entrepreneurship Summit',
+            caption: 'Speaking at an Entrepreneurship Summit, January 2025',
+            wide: true,
+            position: 'object-[30%_60%]',
+            order: 'md:order-2',
+        },
+        {
+            src: journeyAccenture,
+            alt: 'Anushka standing in front of the Accenture sign in Mumbai',
+            caption: 'Got into Accenture, Mumbai',
+            wide: false,
+            position: 'object-[50%_30%]',
+            order: 'md:order-1',
+        },
+        {
+            src: journeyOnStage,
+            alt: 'Anushka on stage beside a screen introducing her as a speaker',
+            caption: 'On stage as a guest speaker',
+            wide: false,
+            position: 'object-[68%_50%]',
+            order: 'md:order-4',
+        },
+        {
+            src: journeyStudentTeam,
+            alt: 'Anushka with the student team after her session',
+            caption: 'With the student team after my session',
+            wide: true,
+            position: 'object-[50%_60%]',
+            order: 'md:order-3',
+        },
+    ],
 };
 
 const outcomes = [
@@ -495,6 +540,44 @@ export default function HomePage() {
                                         {paragraph}
                                     </p>
                                 )
+                            ))}
+                        </div>
+                    </motion.div>
+
+                    {/* What the new version of her went on to do */}
+                    <motion.div
+                        variants={fadeInUp}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, amount: 0.1 }}
+                        className="max-w-4xl mx-auto mt-16 md:mt-20"
+                    >
+                        <h3 className="text-xl md:text-3xl font-bold font-serif text-anushka-700 text-center">
+                            {journey.heading}
+                        </h3>
+                        <p className="mt-4 max-w-2xl mx-auto text-center text-lg text-gray-700 leading-relaxed">
+                            {journey.intro}
+                        </p>
+                        <div className="mt-8 grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+                            {journey.photos.map((photo) => (
+                                <figure
+                                    key={photo.caption}
+                                    className={`relative overflow-hidden rounded-2xl bg-anushka-50 shadow-md md:h-80 ${photo.order} ${
+                                        photo.wide ? 'col-span-2 aspect-[3/2] md:aspect-auto' : 'aspect-[3/4] md:aspect-auto'
+                                    }`}
+                                >
+                                    <Image
+                                        src={photo.src}
+                                        alt={photo.alt}
+                                        fill
+                                        placeholder="blur"
+                                        sizes={photo.wide ? '(min-width: 768px) 600px, 100vw' : '(min-width: 768px) 300px, 50vw'}
+                                        className={`object-cover ${photo.position}`}
+                                    />
+                                    <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 via-black/35 to-transparent px-3 pt-10 pb-3 md:px-4 md:pb-4 text-white text-xs md:text-sm font-medium leading-snug">
+                                        {photo.caption}
+                                    </figcaption>
+                                </figure>
                             ))}
                         </div>
                     </motion.div>
