@@ -4,7 +4,7 @@ import Profile4 from './assets/Linkedin_Profile_4.png';
 const anushkaProfile = {
   name: "Anushka Jain",
   headline: "",
-  bio: "Building Rebirth | Brand Marketer | 70k+ Community | Helping you build a monetised brand",
+  bio: "Founder, Rebirth Club | Coaching for women who are starting again",
   bannerUrl: Banner4,
   profileUrl: Profile4
 };

@@ -3,8 +3,14 @@ import Script from 'next/script';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const metadata = {
-  title: 'Rebirth | Personal Brand Accelerator for Women',
-  description: 'Your Next Chapter Starts Here.',
+  title: 'Rebirth Club | Rebuild your life, on your own terms',
+  description:
+    'Private coaching with Anushka Jain for women who are starting again: rebuilding their confidence, finding their direction, and creating their own income and opportunities.',
+  openGraph: {
+    title: 'Rebirth Club | Rebuild your life, on your own terms',
+    description: 'Private coaching with Anushka Jain for women who are starting again.',
+    type: 'website',
+  },
   icons: {
     icon: './favicon.png',
     shortcut: './favicon.png',
