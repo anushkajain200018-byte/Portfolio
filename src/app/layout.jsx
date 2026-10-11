@@ -3,12 +3,12 @@ import Script from 'next/script';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const metadata = {
-  title: "Rebirth Club | Become the woman you can't even recognise",
+  title: 'Rebirth Club | Turn your pain into power',
   description:
-    'Anushka Jain was the shy girl from Jhansi nobody believed in. She rebuilt her life, and now helps ambitious women rebuild their confidence and theirs.',
+    'Rebirth means reborn. Rebirth Club helps ambitious women rebuild their lives and build a life they are proud of.',
   openGraph: {
-    title: "Rebirth Club | Become the woman you can't even recognise",
-    description: 'From a shy small-town girl in Jhansi to a woman she could not recognise. Now she helps ambitious women do the same.',
+    title: 'Rebirth Club | Turn your pain into power',
+    description: 'For ambitious women who want more from life and do not know how to start.',
     type: 'website',
   },
   icons: {
