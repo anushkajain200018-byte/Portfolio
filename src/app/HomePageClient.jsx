@@ -9,6 +9,7 @@ import RebirthApplication from '../components/RebirthApplication';
 import TestimonialsSection from '../components/TestimonialsSection';
 
 import profileBackground from '../assets/new-profile-backgroud.jpg';
+import storyPortrait from '../assets/Linkedin_Profile_4.png';
 
 /* ── Content ─────────────────────────────────────────────────────
    Everything a visitor reads lives here, so the copy can be changed
@@ -20,7 +21,8 @@ const SHOW_PRICES = true;
 
 const HERO = {
     eyebrow: 'Rebirth Club · Coaching for women',
-    headline: 'Rebuild your life. On your own terms.',
+    // Two lines on purpose, so the second sentence never breaks mid-phrase.
+    headline: ['Rebuild your life.', 'On your own terms.'],
     support:
         'Private coaching with Anushka Jain for women who are starting again: rebuilding their confidence, finding their direction, and creating their own income and opportunities.',
     reassurance: 'Every woman starts with a free 20-minute call.',
@@ -204,7 +206,9 @@ export default function HomePage() {
                                 </span>
                             </h1>
                             <p className="text-xl text-gray-800 font-semibold leading-snug mb-3 max-w-xs mx-auto">
-                                {HERO.headline}
+                                {HERO.headline.map((line) => (
+                                    <span key={line} className="block">{line}</span>
+                                ))}
                             </p>
                             <p className="text-sm text-gray-500 leading-relaxed mb-8 max-w-sm mx-auto">
                                 {HERO.support}
@@ -250,7 +254,9 @@ export default function HomePage() {
                                 animate={reduced ? undefined : { opacity: 1, y: 0 }}
                                 transition={{ duration: 0.5, delay: 0.18 }}
                             >
-                                {HERO.headline}
+                                {HERO.headline.map((line) => (
+                                    <span key={line} className="block">{line}</span>
+                                ))}
                             </motion.p>
 
                             <motion.p
@@ -487,10 +493,10 @@ export default function HomePage() {
                         className="max-w-2xl mx-auto"
                     >
                         <Image
-                            src="./favicon.png"
+                            src={storyPortrait}
                             alt="Anushka Jain"
-                            width={100}
-                            height={100}
+                            width={192}
+                            height={192}
                             className="rounded-full shadow-lg w-24 h-24 object-cover border-2 border-anushka-400/40 mx-auto mb-6"
                         />
                         <h2 className={`${sectionHeading} text-center mb-10`}>
