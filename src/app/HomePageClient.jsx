@@ -14,6 +14,7 @@ import journeySummit from '../assets/journey/summit.jpg';
 import journeyAccenture from '../assets/journey/accenture.jpg';
 import journeyOnStage from '../assets/journey/on-stage.jpg';
 import journeyStudentTeam from '../assets/journey/student-team.jpg';
+import journeySchoolStage from '../assets/journey/school-stage.jpg';
 
 /* ── Content ─────────────────────────────────────────────────────
    Everything a visitor reads lives here, so the copy can be changed
@@ -99,6 +100,15 @@ const about = {
     ],
     // Index of the paragraph shown as the pull quote.
     turningPoint: 4,
+};
+
+// The "before" photo, shown just above the journey photos.
+const before = {
+    heading: 'The Girl I Was',
+    text: 'This is me on a school stage. I was so nervous, and all I could think was:',
+    thought: 'I do not deserve to be here.',
+    src: journeySchoolStage,
+    alt: 'Anushka as a schoolgirl, speaking nervously into a microphone on a school stage',
 };
 
 // Photos shown under the About story. `wide` photos take two columns.
@@ -541,6 +551,37 @@ export default function HomePage() {
                                     </p>
                                 )
                             ))}
+                        </div>
+                    </motion.div>
+
+                    {/* Where she started: the nervous girl on a school stage */}
+                    <motion.div
+                        variants={fadeInUp}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, amount: 0.2 }}
+                        className="max-w-4xl mx-auto mt-16 md:mt-20 grid md:grid-cols-2 gap-6 md:gap-10 items-center"
+                    >
+                        <figure className="relative aspect-[4/3] w-full max-w-md mx-auto overflow-hidden rounded-2xl bg-anushka-50 shadow-md">
+                            <Image
+                                src={before.src}
+                                alt={before.alt}
+                                fill
+                                placeholder="blur"
+                                sizes="(min-width: 768px) 420px, 100vw"
+                                className="object-cover"
+                            />
+                        </figure>
+                        <div className="text-center md:text-left">
+                            <h3 className="text-xl md:text-3xl font-bold font-serif text-anushka-700">
+                                {before.heading}
+                            </h3>
+                            <p className="mt-4 text-lg text-gray-700 leading-relaxed">
+                                {before.text}
+                            </p>
+                            <p className="mt-3 text-2xl md:text-3xl font-serif italic text-gray-900 leading-snug">
+                                &ldquo;{before.thought}&rdquo;
+                            </p>
                         </div>
                     </motion.div>
 
