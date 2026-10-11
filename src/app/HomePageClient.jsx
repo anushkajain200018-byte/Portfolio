@@ -75,7 +75,7 @@ const youWant = [
 
 const evenIf = [
     'You come from a small town',
-    'You come from a dysfunctional family',
+    'You grew up in a dysfunctional environment',
     'You carry a lot of trauma',
     'You have been through more than anyone knows',
     'You have no idea where to start',
@@ -84,15 +84,16 @@ const evenIf = [
 const about = {
     greeting: "Hi, I'm Anushka.",
     paragraphs: [
-        'I grew up in Jhansi, a small town in Uttar Pradesh, in a dysfunctional family. I was shy, insecure and deeply underconfident. I could barely speak to anyone. I was bullied, my teachers rejected me, and nobody believed in me.',
-        'I got into toxic friendships, and then the most toxic relationship of my life. At 21 I went through my first heartbreak and lost myself completely. I lost my identity. I was depressed, and I did not want the life I was living.',
-        'Then I told myself the old version of me had to die, so that a new one could be born.',
-        'I rebuilt my confidence. I changed my mindset. I left behind what no longer felt right. I became a version of myself that nobody could recognise, including me.',
-        'Today I live in Mumbai, speak to a community of nearly 100,000, have worked with more than 200 brands, and I am living the life I once only dreamed of.',
-        'I built Rebirth Club to help you turn your pain into power too.',
+        'I grew up in Jhansi, a small town in Uttar Pradesh, in a very conservative environment and a dysfunctional upbringing. I was shy and insecure. I was bullied, my teachers rejected me, and nobody believed in me. I never liked my life.',
+        'I got into toxic friendships, and then a toxic relationship. I lost myself so completely that I no longer wanted the life I was living.',
+        'At 19, I took my first step and left my hometown. I had no idea my entire life was about to change.',
+        'The years that followed were not easy. By 24 I had lost two jobs and been through a painful heartbreak. I was carrying an identity I did not want. I was depressed, and I hated myself so much that I had no choice but to heal.',
+        'At 23, I went through my first spiritual awakening. I told myself the old version of me had to die, so that a new one could be born.',
+        'I moved to a big city and completely transformed my life. Today I live in Mumbai, speak to a community of nearly 100,000, and have worked with more than 200 brands. I still do not fully know how that shy girl became this woman.',
+        'In 2025, I started Rebirth. I know what it takes to heal yourself, and I believe every woman deserves a good life, no matter how much she has been through.',
     ],
     // Index of the paragraph shown as the pull quote.
-    turningPoint: 2,
+    turningPoint: 4,
 };
 
 const outcomes = [
