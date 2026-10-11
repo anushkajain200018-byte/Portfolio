@@ -39,4 +39,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the Rebirth experie
 
 ---
 
-**Version 1.0 Snapshot**: A backup of the original portfolio is archived in `Version_1.0_Portfolio/`.
+**Version 1.0 Snapshot**: The original portfolio, from before Rebirth, was removed from this repository in October 2026. It is still available in the git history.
