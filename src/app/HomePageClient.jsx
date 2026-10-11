@@ -115,7 +115,7 @@ const before = {
 // `position` keeps Anushka in frame when a photo is cropped to fit.
 const journey = {
     heading: 'The Woman I Became',
-    intro: 'The new version of me did things the old me never thought she could. I spoke on stages, got into a multinational company, and became a version of myself I never knew I could be.',
+    intro: 'I manifested working in corporate. I spoke on stages. Opportunities started coming to me on their own, with the blessings of the universe. I became a version of myself I never knew I could be.',
     photos: [
         {
             src: journeySummit,
