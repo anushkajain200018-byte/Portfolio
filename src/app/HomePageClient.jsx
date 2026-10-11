@@ -13,16 +13,23 @@ import storyPortrait from '../assets/Linkedin_Profile_4.png';
 
 /* ── Content ─────────────────────────────────────────────────────
    Everything a visitor reads lives here, so the copy can be changed
-   without touching the layout below. No prices appear on the site:
-   they are discussed on the free call.
+   without touching the layout below. The page is about Rebirth Club
+   first; Anushka's own story lives in the About section. No prices
+   appear on the site: they are discussed on the free call.
 ──────────────────────────────────────────────────────────────── */
 
+const NAV_LINKS = [
+    { label: 'What it is', target: 'what-is-rebirth' },
+    { label: 'About me', target: 'about' },
+    { label: 'How it works', target: 'how-it-works' },
+];
+
 const HERO = {
-    eyebrow: 'Rebirth Club · by Anushka Jain',
+    eyebrow: 'Rebirth Club · For ambitious women',
     // Two lines on purpose, so the sentence never breaks mid-phrase.
-    headline: ['I was the shy girl from Jhansi', 'nobody believed in.'],
+    headline: ['Turn your pain', 'into power.'],
     support:
-        'I rebuilt my life until I could not recognise myself. Now I help ambitious women do the same.',
+        'Rebirth means reborn. We help ambitious women rebuild their lives and build a life they are proud of.',
     reassurance: 'Every woman starts with a free 20-minute call.',
 };
 
@@ -31,73 +38,61 @@ const proof = [
     { stat: '58,000+', label: 'on LinkedIn', href: 'https://www.linkedin.com/in/anushka-jain-408b81211/' },
     { stat: '39,000+', label: 'on Instagram', href: 'https://www.instagram.com/anushkajaiinn/' },
     { stat: '4.9 / 5', label: 'on Topmate', href: 'https://topmate.io/anushka_jain10/' },
-    { stat: '200+', label: 'brand collaborations' },
+    { stat: '200+', label: 'women spoken to, one to one' },
 ];
 
-// Each pillar pairs something Anushka lived with what she now helps women do.
+const whatIs = {
+    lead: 'Rebirth means reborn.',
+    body: 'Rebirth Club is for ambitious women who want more from life and do not know how to start. We help you rebuild your life and become the version of yourself you have always dreamed of.',
+};
+
 const pillars = [
     {
-        lived: 'I could not speak to anyone.',
         title: 'Rebuild your confidence',
         text: 'Stop shrinking. Find your voice again, and use it in every room you walk into.',
     },
     {
-        lived: 'At 21, I lost my identity.',
         title: 'Find yourself again',
-        text: 'After a heartbreak, a job that ended, or years of living for everyone else, get clear on who you are now and what you want.',
+        text: 'Get clear on who you are now, what you are leaving behind, and what you want next.',
     },
     {
-        lived: 'Nobody believed in me.',
         title: 'Become visible',
         text: 'Build a personal brand that shows the world what you are good at, so opportunities start coming to you.',
     },
     {
-        lived: 'I did not want the life I was living.',
-        title: 'Live on your own terms',
-        text: 'Your own income, your own decisions, and a life you once only dreamed of.',
+        title: 'Build your dream life',
+        text: 'Your own income, your own decisions, and a life you are proud to wake up to.',
     },
 ];
 
-const womenComeWhen = [
-    'After losing a job',
-    'After a heartbreak that took their confidence with it',
-    'When a 9-to-5 no longer fits and they want an income of their own',
-    "When they know they want to change and don't know where to begin",
+const youWant = [
+    'Become the best version of yourself',
+    'Earn your own money',
+    'Live in the city you dream of',
+    'Be with the partner of your dreams',
+    'Live your best life, and have it all',
 ];
 
-const forYou = [
-    'You are ambitious, and you know you were made for more than this',
-    'You feel you have outgrown your current life and are not sure what comes next',
-    'You are ready to do the work, with someone beside you',
+const evenIf = [
+    'You come from a small town',
+    'You come from a dysfunctional family',
+    'You carry a lot of trauma',
+    'You have been through more than anyone knows',
+    'You have no idea where to start',
 ];
 
-const story = {
+const about = {
     greeting: "Hi, I'm Anushka.",
-    then: {
-        label: 'Then',
-        place: 'Jhansi, Uttar Pradesh',
-        items: [
-            'A small-town girl, so shy I could not speak to anyone',
-            'Bullied, and rejected by my own teachers',
-            'Nobody believed in me',
-            'Toxic friendships, and the most toxic relationship of my life',
-            'At 21, a heartbreak that took my identity with it',
-            'Depressed, and living a life I did not want',
-        ],
-    },
-    turningPoint: 'I told myself the old version of me had to die, so that a new one could be born.',
-    now: {
-        label: 'Now',
-        place: 'Mumbai',
-        items: [
-            'A woman that girl would not recognise',
-            'Speaking every day to a community of nearly 100,000',
-            'Trusted by more than 200 brands',
-            'Living a life I once only dreamed of, on my own terms',
-            'Helping other women through their own rebirth',
-        ],
-    },
-    closing: 'Rebirth is not built from a textbook. It is built from my own life, and everything it took to rebuild it.',
+    paragraphs: [
+        'I grew up in Jhansi, a small town in Uttar Pradesh, in a dysfunctional family. I was shy, insecure and deeply underconfident. I could barely speak to anyone. I was bullied, my teachers rejected me, and nobody believed in me.',
+        'I got into toxic friendships, and then the most toxic relationship of my life. At 21 I went through my first heartbreak and lost myself completely. I lost my identity. I was depressed, and I did not want the life I was living.',
+        'Then I told myself the old version of me had to die, so that a new one could be born.',
+        'I rebuilt my confidence. I changed my mindset. I left behind what no longer felt right. I became a version of myself that nobody could recognise, including me.',
+        'Today I live in Mumbai, speak to a community of nearly 100,000, have worked with more than 200 brands, and I am living the life I once only dreamed of.',
+        'I built Rebirth Club to help you turn your pain into power too.',
+    ],
+    // Index of the paragraph shown as the pull quote.
+    turningPoint: 2,
 };
 
 const outcomes = [
@@ -146,7 +141,7 @@ export default function HomePage() {
     };
     const scrollToApply = () => scrollToId('apply-section');
 
-    const ApplyButton = ({ className = '', onClick = scrollToApply }) => (
+    const ApplyButton = ({ className = '', onClick = scrollToApply, showArrow = true }) => (
         <motion.button
             onClick={onClick}
             whileHover={{ scale: 1.03 }}
@@ -154,7 +149,7 @@ export default function HomePage() {
             className={`group inline-flex items-center gap-3 bg-gradient-to-r from-anushka-500 to-rose-500 hover:from-anushka-600 hover:to-rose-600 text-white font-semibold rounded-full transition-all duration-300 ${className}`}
         >
             Apply for Rebirth
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            {showArrow && <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />}
         </motion.button>
     );
 
@@ -165,9 +160,35 @@ export default function HomePage() {
     return (
         <>
             {/* ══════════════════════════════════════════════════════════
+                TOP BAR — brand, section links and the Apply button
+            ══════════════════════════════════════════════════════════ */}
+            <header className="fixed top-0 inset-x-0 z-50 bg-white/85 backdrop-blur-md border-b border-anushka-100">
+                <div className="container mx-auto px-5 md:px-8 h-16 flex items-center justify-between gap-4">
+                    <button
+                        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                        className="font-serif text-xl font-bold bg-gradient-to-r from-anushka-700 to-rose-700 bg-clip-text text-transparent"
+                    >
+                        Rebirth Club
+                    </button>
+                    <nav aria-label="Sections" className="hidden md:flex items-center gap-8">
+                        {NAV_LINKS.map((link) => (
+                            <button
+                                key={link.target}
+                                onClick={() => scrollToId(link.target)}
+                                className="text-sm font-medium text-gray-600 hover:text-anushka-600 transition-colors"
+                            >
+                                {link.label}
+                            </button>
+                        ))}
+                    </nav>
+                    <ApplyButton showArrow={false} className="py-2.5 px-5 text-sm shadow-md" />
+                </div>
+            </header>
+
+            {/* ══════════════════════════════════════════════════════════
                 1. HERO — Full-bleed editorial split
             ══════════════════════════════════════════════════════════ */}
-            <section className={`relative min-h-screen flex items-start md:items-center overflow-hidden ${pinkSection}`}>
+            <section className={`relative min-h-screen flex items-start md:items-center overflow-hidden pt-16 ${pinkSection}`}>
 
                 {/* ── DESKTOP photo — right 68%, full height ─────────── */}
                 <div className="hidden md:block absolute inset-y-0 right-0 w-[68%] pointer-events-none select-none">
@@ -227,7 +248,7 @@ export default function HomePage() {
                                     Rebirth
                                 </span>
                             </h1>
-                            <p className="text-[1.35rem] text-gray-800 font-semibold leading-snug mb-3 mx-auto">
+                            <p className="text-[1.75rem] text-gray-800 font-semibold leading-tight mb-4 mx-auto">
                                 {headlineLines}
                             </p>
                             <p className="text-base text-gray-600 leading-relaxed mb-8 max-w-sm mx-auto">
@@ -245,8 +266,8 @@ export default function HomePage() {
                     </div>
 
                     {/* ── DESKTOP layout ───────────────────────────────── */}
-                    <div className="hidden md:flex items-center min-h-screen">
-                        <div className="pl-12 lg:pl-20 xl:pl-28 pr-4 max-w-[52%] lg:max-w-[48%] py-24">
+                    <div className="hidden md:flex items-center min-h-[calc(100vh-4rem)]">
+                        <div className="pl-12 lg:pl-20 xl:pl-28 pr-4 max-w-[52%] lg:max-w-[48%] py-20">
 
                             <motion.span
                                 className="inline-block text-xs font-semibold tracking-[0.2em] uppercase text-anushka-500 mb-5"
@@ -269,7 +290,7 @@ export default function HomePage() {
                             </motion.h1>
 
                             <motion.p
-                                className="text-2xl lg:text-[1.7rem] text-gray-800 font-semibold leading-snug mb-4"
+                                className="text-3xl lg:text-[2.4rem] text-gray-800 font-semibold leading-tight mb-5"
                                 initial={reduced ? undefined : { opacity: 0, y: 18 }}
                                 animate={reduced ? undefined : { opacity: 1, y: 0 }}
                                 transition={{ duration: 0.5, delay: 0.18 }}
@@ -340,84 +361,9 @@ export default function HomePage() {
             </section>
 
             {/* ══════════════════════════════════════════════════════════
-                2. MY STORY — then, the decision, now
+                2. WHAT REBIRTH CLUB IS
             ══════════════════════════════════════════════════════════ */}
-            <section id="my-story" className="py-16 md:py-24 bg-white scroll-mt-4">
-                <div className="container mx-auto px-6">
-                    <motion.div
-                        variants={fadeInUp}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true, amount: 0.1 }}
-                        className="max-w-4xl mx-auto"
-                    >
-                        <Image
-                            src={storyPortrait}
-                            alt="Anushka Jain"
-                            width={224}
-                            height={224}
-                            className="rounded-full shadow-lg w-28 h-28 object-cover border-2 border-anushka-400/40 mx-auto mb-6"
-                        />
-                        <h2 className={`${sectionHeading} text-center mb-3`}>
-                            The Girl From Jhansi
-                        </h2>
-                        <p className="text-center text-lg md:text-xl text-gray-800 font-semibold mb-12">
-                            {story.greeting}
-                        </p>
-
-                        <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-                            {/* Then */}
-                            <div className="rounded-2xl p-8 bg-gray-50 border border-gray-200">
-                                <p className="text-sm font-semibold tracking-[0.18em] uppercase text-gray-500">
-                                    {story.then.label}
-                                </p>
-                                <h3 className="mt-1 text-xl md:text-2xl font-bold text-gray-800 font-serif mb-6">
-                                    {story.then.place}
-                                </h3>
-                                <ul className="space-y-4">
-                                    {story.then.items.map((item) => (
-                                        <li key={item} className="flex items-start gap-3">
-                                            <span className="mt-[0.7rem] w-2 h-2 rounded-full bg-gray-400 shrink-0" aria-hidden="true" />
-                                            <span className="text-gray-600 text-lg">{item}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-
-                            {/* Now */}
-                            <div className={`rounded-2xl p-8 border border-anushka-300 shadow-md ${pinkSection}`}>
-                                <p className="text-sm font-semibold tracking-[0.18em] uppercase text-anushka-500">
-                                    {story.now.label}
-                                </p>
-                                <h3 className="mt-1 text-xl md:text-2xl font-bold text-gray-800 font-serif mb-6">
-                                    {story.now.place}
-                                </h3>
-                                <ul className="space-y-4">
-                                    {story.now.items.map((item) => (
-                                        <li key={item} className="flex items-start gap-3">
-                                            <Sparkles className="w-5 h-5 text-anushka-500 mt-1 shrink-0" />
-                                            <span className="text-gray-800 text-lg font-medium">{item}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        </div>
-
-                        {/* The decision */}
-                        <blockquote className="mt-12 max-w-3xl mx-auto text-center font-serif text-2xl md:text-4xl leading-snug text-anushka-700">
-                            &ldquo;{story.turningPoint}&rdquo;
-                        </blockquote>
-                        <p className="mt-8 max-w-2xl mx-auto text-center text-lg md:text-xl text-gray-700 leading-relaxed">
-                            {story.closing}
-                        </p>
-                    </motion.div>
-                </div>
-            </section>
-
-            {/* ══════════════════════════════════════════════════════════
-                3. WHAT I HELP WOMEN WITH
-            ══════════════════════════════════════════════════════════ */}
-            <section className={`py-16 md:py-24 ${pinkSection}`}>
+            <section id="what-is-rebirth" className="py-16 md:py-24 bg-white scroll-mt-16">
                 <div className="container mx-auto px-6">
                     <motion.div
                         className="max-w-4xl mx-auto"
@@ -426,18 +372,21 @@ export default function HomePage() {
                         whileInView="visible"
                         viewport={{ once: true, amount: 0.15 }}
                     >
-                        <h2 className={`${sectionHeading} text-center mb-5`}>
-                            What I Help Women With
+                        <h2 className={`${sectionHeading} text-center mb-6`}>
+                            What Is Rebirth Club?
                         </h2>
+                        <p className="text-center font-serif text-2xl md:text-3xl text-anushka-700 mb-5">
+                            {whatIs.lead}
+                        </p>
                         <p className="text-center text-lg md:text-xl text-gray-700 leading-relaxed max-w-2xl mx-auto mb-12">
-                            Most women don&apos;t need more motivation. They need someone beside them while they rebuild.
+                            {whatIs.body}
                         </p>
                         <div className="grid sm:grid-cols-2 gap-6 md:gap-8">
-                            {pillars.map((pillar) => (
-                                <div key={pillar.title} className="rounded-2xl p-8 border border-anushka-200/60 bg-white/90">
-                                    <p className="font-serif italic text-lg text-anushka-600 mb-3">
-                                        &ldquo;{pillar.lived}&rdquo;
-                                    </p>
+                            {pillars.map((pillar, i) => (
+                                <div key={pillar.title} className={`rounded-2xl p-8 border border-anushka-200/60 ${pinkSection}`}>
+                                    <span className="block text-sm font-semibold tracking-[0.18em] text-anushka-500 mb-3">
+                                        0{i + 1}
+                                    </span>
                                     <h3 className="text-xl md:text-2xl font-bold text-gray-800 font-serif mb-3">
                                         {pillar.title}
                                     </h3>
@@ -450,45 +399,101 @@ export default function HomePage() {
             </section>
 
             {/* ══════════════════════════════════════════════════════════
-                4. WHO COMES TO REBIRTH
+                3. YOU WANT MORE — even if
             ══════════════════════════════════════════════════════════ */}
-            <section className="py-16 md:py-24 bg-white">
+            <section className={`py-16 md:py-24 ${pinkSection}`}>
                 <div className="container mx-auto px-6">
                     <motion.div
                         variants={fadeInUp}
                         initial="hidden"
                         whileInView="visible"
-                        viewport={{ once: true, amount: 0.2 }}
+                        viewport={{ once: true, amount: 0.15 }}
                         className="max-w-4xl mx-auto"
                     >
+                        <h2 className={`${sectionHeading} text-center mb-12`}>
+                            You Want More From Life
+                        </h2>
                         <div className="grid md:grid-cols-2 gap-8 md:gap-12">
-                            <div className={`rounded-2xl p-8 border border-anushka-200/50 ${pinkSection}`}>
+                            <div className="bg-white/85 rounded-2xl p-8 border border-anushka-200/50">
                                 <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-6 font-serif">
-                                    Women come to Rebirth:
+                                    You want to:
                                 </h3>
                                 <ul className="space-y-4">
-                                    {womenComeWhen.map((item, i) => (
-                                        <li key={i} className="flex items-start gap-3">
+                                    {youWant.map((item) => (
+                                        <li key={item} className="flex items-start gap-3">
                                             <Sparkles className="w-5 h-5 text-anushka-500 mt-1 shrink-0" />
-                                            <span className="text-gray-700 text-lg">{item}</span>
+                                            <span className="text-gray-800 text-lg font-medium">{item}</span>
                                         </li>
                                     ))}
                                 </ul>
                             </div>
 
-                            <div className={`rounded-2xl p-8 border border-anushka-200/50 ${pinkSection}`}>
+                            <div className="bg-white/85 rounded-2xl p-8 border border-anushka-200/50">
                                 <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-6 font-serif">
-                                    Rebirth is for you if:
+                                    Even if:
                                 </h3>
                                 <ul className="space-y-4">
-                                    {forYou.map((item, i) => (
-                                        <li key={i} className="flex items-start gap-3">
+                                    {evenIf.map((item) => (
+                                        <li key={item} className="flex items-start gap-3">
                                             <Check className="w-5 h-5 text-anushka-500 mt-1 shrink-0" />
                                             <span className="text-gray-700 text-lg">{item}</span>
                                         </li>
                                     ))}
                                 </ul>
                             </div>
+                        </div>
+
+                        <div className="mt-12 text-center">
+                            <p className="font-serif text-2xl md:text-3xl text-anushka-700 mb-8">
+                                Just like me.
+                            </p>
+                            <ApplyButton className="py-4 px-10 shadow-lg hover:shadow-xl" />
+                        </div>
+                    </motion.div>
+                </div>
+            </section>
+
+            {/* ══════════════════════════════════════════════════════════
+                4. ABOUT ME
+            ══════════════════════════════════════════════════════════ */}
+            <section id="about" className="py-16 md:py-24 bg-white scroll-mt-16">
+                <div className="container mx-auto px-6">
+                    <motion.div
+                        variants={fadeInUp}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, amount: 0.1 }}
+                        className="max-w-2xl mx-auto"
+                    >
+                        <Image
+                            src={storyPortrait}
+                            alt="Anushka Jain"
+                            width={224}
+                            height={224}
+                            className="rounded-full shadow-lg w-28 h-28 object-cover border-2 border-anushka-400/40 mx-auto mb-6"
+                        />
+                        <h2 className={`${sectionHeading} text-center mb-10`}>
+                            About Me
+                        </h2>
+                        <div className="space-y-6 text-lg md:text-xl text-gray-700 leading-relaxed">
+                            <p className="text-gray-900 font-semibold">{about.greeting}</p>
+                            {about.paragraphs.map((paragraph, i) => (
+                                i === about.turningPoint ? (
+                                    <p
+                                        key={i}
+                                        className="font-serif text-2xl md:text-3xl leading-snug text-anushka-700 border-l-4 border-anushka-400 pl-5 py-1"
+                                    >
+                                        {paragraph}
+                                    </p>
+                                ) : (
+                                    <p
+                                        key={i}
+                                        className={i === about.paragraphs.length - 1 ? 'text-gray-900 font-semibold' : undefined}
+                                    >
+                                        {paragraph}
+                                    </p>
+                                )
+                            ))}
                         </div>
                     </motion.div>
                 </div>
@@ -525,10 +530,6 @@ export default function HomePage() {
                                 </motion.li>
                             ))}
                         </ul>
-
-                        <div className="mt-12">
-                            <ApplyButton className="py-4 px-10 shadow-lg hover:shadow-xl" />
-                        </div>
                     </motion.div>
                 </div>
             </section>
@@ -536,7 +537,7 @@ export default function HomePage() {
             {/* ══════════════════════════════════════════════════════════
                 6. HOW IT WORKS
             ══════════════════════════════════════════════════════════ */}
-            <section id="how-it-works" className="py-16 md:py-24 bg-white scroll-mt-4">
+            <section id="how-it-works" className="py-16 md:py-24 bg-white scroll-mt-16">
                 <div className="container mx-auto px-6">
                     <motion.div
                         variants={fadeInUp}
@@ -546,7 +547,7 @@ export default function HomePage() {
                         className="max-w-4xl mx-auto"
                     >
                         <h2 className={`${sectionHeading} text-center mb-12`}>
-                            How It Works
+                            How to Apply for Rebirth
                         </h2>
                         <ol className="grid md:grid-cols-3 gap-8">
                             {steps.map((step, i) => (
@@ -559,19 +560,22 @@ export default function HomePage() {
                                 </li>
                             ))}
                         </ol>
+                        <div className="mt-12 text-center">
+                            <ApplyButton className="py-4 px-10 shadow-lg hover:shadow-xl" />
+                        </div>
                     </motion.div>
                 </div>
             </section>
 
             {/* ══════════════════════════════════════════════════════════
-                7. WHAT WOMEN SAY
+                7. WOMEN WHO COME TO REBIRTH — stories and the Topmate rating
             ══════════════════════════════════════════════════════════ */}
             <TestimonialsSection />
 
             {/* ══════════════════════════════════════════════════════════
                 8. APPLY FLOW — Multi-step form + Topmate booking
             ══════════════════════════════════════════════════════════ */}
-            <section id="apply-section" className="py-16 md:py-24 bg-white scroll-mt-4" ref={applyRef}>
+            <section id="apply-section" className="py-16 md:py-24 bg-white scroll-mt-16" ref={applyRef}>
                 <div className="container mx-auto px-4">
                     <motion.div
                         className="max-w-2xl mx-auto"
