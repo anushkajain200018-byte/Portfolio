@@ -34,6 +34,9 @@ function formatPhone(raw) {
 }
 
 // Google Apps Script endpoint
+// Paste the WhatsApp community invite link here to show the "Join the Rebirth Community" button.
+const COMMUNITY_LINK = '';
+
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyIQNs6Wsw0H4T0Bd47IYflMif2QTcbBTgoqAavTbtiERyUFNKtMxEJBSAHyu1Sdvpr2A/exec';
 
 // Flow configuration with conditional branching
@@ -44,6 +47,7 @@ const FLOW_CONFIG = {
         question: "What brings you to Rebirth today?",
         type: 'choice',
         options: [
+            { id: 'rebuild', label: "I want to rebuild my confidence and start again", next: 'step2c' },
             { id: 'thought-leader', label: "I'm ready to be seen as a thought leader", next: 'step2a' },
             { id: 'opportunities', label: "I want to attract better opportunities", next: 'step2b' },
             { id: 'clarity', label: "I need clarity on my personal brand", next: 'step2c' },
@@ -112,14 +116,14 @@ const FLOW_CONFIG = {
         id: 'early-exit',
         type: 'exit',
         title: "That's completely okay.",
-        message: "Rebirth isn't for everyone, and it shouldn't be. When you're ready to take the leap, I'll be here.",
+        message: "There is no rush. When you're ready to take the next step, Rebirth will be here.",
         showWhatsApp: true,
     },
     'soft-exit': {
         id: 'soft-exit',
         type: 'exit',
         title: "Taking time is wise.",
-        message: "Transformation shouldn't be rushed. Join my community to stay connected and step in when you're ready.",
+        message: "Transformation shouldn't be rushed. Come back whenever you're ready; the application takes two minutes.",
         showWhatsApp: true,
     }
 };
@@ -341,9 +345,9 @@ export default function RebirthApplication() {
                 <p className="text-gray-700 mb-8 max-w-md mx-auto leading-relaxed">
                     {step.message}
                 </p>
-                {step.showWhatsApp && (
+                {step.showWhatsApp && COMMUNITY_LINK && (
                     <motion.a
-                        href="https://chat.whatsapp.com/YOUR_CHANNEL_LINK"
+                        href={COMMUNITY_LINK}
                         target="_blank"
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.02 }}
