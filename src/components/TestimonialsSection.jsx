@@ -20,7 +20,7 @@ function TopmateRating() {
       href={TOPMATE_URL}
       target="_blank"
       rel="noopener noreferrer"
-      className="group inline-flex flex-col items-center bg-white/80 backdrop-blur-sm px-8 py-8 md:px-12 rounded-2xl shadow-md border border-anushka-200/50 hover:border-anushka-400 transition-colors"
+      className="group inline-flex flex-col items-center bg-white/90 px-8 py-8 md:px-12 rounded-2xl shadow-md border border-anushka-200/50 hover:border-anushka-400 transition-colors"
     >
       <span className="flex items-center gap-1 text-anushka-500" aria-hidden="true">
         {[0, 1, 2, 3, 4].map((i) => (
@@ -41,7 +41,7 @@ export default function TestimonialsSection() {
   const hasTestimonials = testimonials.length > 0;
 
   return (
-    <motion.section id="testimonial" className="scroll-mt-24 py-16 md:py-24 bg-white relative overflow-hidden" variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }}>
+    <motion.section id="testimonial" className="scroll-mt-24 py-16 md:py-24 bg-gradient-to-br from-anushka-50 via-rose-50 to-cream relative overflow-hidden" variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }}>
       <div className="container mx-auto px-6 text-center relative">
         <h2 className="text-2xl md:text-4xl font-bold mb-10 font-serif bg-gradient-to-r from-anushka-700 to-rose-700 bg-clip-text text-transparent">What Women Say</h2>
 
@@ -51,7 +51,7 @@ export default function TestimonialsSection() {
               {testimonials.map((testimonial, index) => (
                 <CarouselItem key={index}>
                   <div className="p-1">
-                    <div className="bg-gradient-to-br from-anushka-50 via-rose-50 to-cream p-8 md:p-10 rounded-2xl shadow-md border border-anushka-200/50 text-center">
+                    <div className="bg-white/90 p-8 md:p-10 rounded-2xl shadow-md border border-anushka-200/50 text-center">
                       <blockquote className="text-lg md:text-xl italic text-gray-700 mb-6 leading-relaxed">&ldquo;{testimonial.text}&rdquo;</blockquote>
                       <h3 className="text-xl font-bold bg-gradient-to-r from-anushka-700 to-rose-700 bg-clip-text text-transparent font-serif">{testimonial.name}</h3>
                       {testimonial.about && (
