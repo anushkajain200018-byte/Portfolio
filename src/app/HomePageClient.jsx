@@ -95,13 +95,15 @@ const about = {
         'At 22, destiny took me to Mumbai for my first corporate job. Within two years, by 24, I had left two corporate jobs.',
         'Those were the hardest years of my life. I was frustrated, irritated and full of negative thoughts. My mental health was at its lowest, and there were days I did not even feel like living. I was stuck in karmic relationships and friendships, living a life that was not mine. I was aggressive, I did not like myself, and I was the worst version of myself.',
         'In the middle of it all, at 23, I went through my biggest spiritual awakening. I was forced to see parts of myself I had never looked at before.',
-        'And I realised I was put on this earth for a purpose.',
+        'For almost a year, I had immense dreams and intuitions about the life I was going to create. I came from a dysfunctional family environment, and I knew I was the one who had to break that pattern and build a completely new life for myself. I could not relate to my old life or my upbringing any more. Nothing.',
+        'It was a time of extreme isolation and suffering. I was losing everyone around me. And then I saw a version of myself, and I knew that this is exactly who I am, behind all the suffering and pain.',
+        'I knew I was born with a purpose.',
         'Slowly, I transformed, and things started changing in me. My intuition became so powerful. You will not believe it, but I started to manifest a life I could never have imagined. Coming from a small town, it all felt impossible. Yet I built my career, my identity, my confidence and my own money, and a lifestyle that nobody around me back home was living.',
         'By 2025, I knew I wanted to change women’s lives. So I started Rebirth Club, because so many women go through immense pain and suffering without realising that pain happens for a reason: to make them the most powerful version of themselves.',
         'This is my story, and this is how Rebirth Club was born.',
     ],
     // Index of the paragraph shown as the pull quote.
-    turningPoint: 6,
+    turningPoint: 8,
 };
 
 // The "before" photo, shown just above the journey photos.
