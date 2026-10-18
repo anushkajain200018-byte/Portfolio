@@ -99,7 +99,8 @@ const about = {
         'It was a time of extreme isolation and suffering. I was losing everyone around me. And then I saw a version of myself, and I knew that this is exactly who I am, behind all the suffering and pain.',
         'I knew I was born with a purpose.',
         'Slowly, I transformed, and things started changing in me. My intuition became so powerful. You will not believe it, but I started to manifest a life I could never have imagined. Coming from a small town, it all felt impossible. Yet I built my career, my identity, my confidence and my own money, and a lifestyle that nobody around me back home was living.',
-        'By 2025, I knew I wanted to change women’s lives. So I started Rebirth Club, because so many women go through immense pain and suffering without realising that pain happens for a reason: to make them the most powerful version of themselves.',
+        'In 2025, I had an intuition about starting Rebirth. I knew I wanted to change women’s lives, because so many women go through immense pain and suffering without realising that pain happens for a reason: to make them the most powerful version of themselves.',
+        'In August 2026, it finally came into place.',
         'This is my story, and this is how Rebirth Club was born.',
     ],
     // Index of the paragraph shown as the pull quote.
