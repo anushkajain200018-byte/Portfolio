@@ -37,7 +37,7 @@ function formatPhone(raw) {
 // Paste the WhatsApp community invite link here to show the "Join the Rebirth Community" button.
 const COMMUNITY_LINK = '';
 
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyIQNs6Wsw0H4T0Bd47IYflMif2QTcbBTgoqAavTbtiERyUFNKtMxEJBSAHyu1Sdvpr2A/exec';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzmhLQsuTkHMzewQcF8Ck9QKhXRpqxtHUNvIRf8JBXHdJ8QYr_3qrdNcQ98TklyGnNbiw/exec';
 
 // Flow configuration with conditional branching
 const FLOW_CONFIG = {
