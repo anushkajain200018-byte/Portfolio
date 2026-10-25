@@ -1,11 +1,10 @@
 'use client';
 
-import React, { useState, useRef } from 'react';
+import React from 'react';
 import Image from 'next/image';
-import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
-import { ArrowRight, Check, Sparkles } from 'lucide-react';
+import { motion, useReducedMotion } from 'framer-motion';
+import { ArrowRight, BookOpen, Check, Sparkles, Video } from 'lucide-react';
 
-import RebirthApplication from '../components/RebirthApplication';
 import TestimonialsSection from '../components/TestimonialsSection';
 
 import profileBackground from '../assets/new-profile-backgroud.jpg';
@@ -19,14 +18,21 @@ import journeySchoolStage from '../assets/journey/school-stage.jpg';
 /* ── Content ─────────────────────────────────────────────────────
    Everything a visitor reads lives here, so the copy can be changed
    without touching the layout below. The page is about Rebirth Club
-   first; Anushka's own story lives in the About section. No prices
-   appear on the site: they are discussed on the free call.
+   first; Anushka's own story lives in the About section. The two
+   offers (the guide and the 1:1 call) are bought on Topmate, and
+   their prices below must match the prices set on Topmate.
 ──────────────────────────────────────────────────────────────── */
+
+// Topmate pages for the two offers. Visitors pay and book there.
+const TOPMATE = {
+    guide: 'https://topmate.io/anushka_jain10/2149716',
+    coaching: 'https://topmate.io/anushka_jain10/2367815',
+};
 
 const NAV_LINKS = [
     { label: 'What it is', target: 'what-is-rebirth' },
     { label: 'About me', target: 'about' },
-    { label: 'How it works', target: 'how-it-works' },
+    { label: 'Work with me', target: 'work-with-me' },
 ];
 
 const HERO = {
@@ -35,8 +41,50 @@ const HERO = {
     headline: ['Turn your pain', 'into power.'],
     support:
         'Rebirth means reborn. We help ambitious women rebuild their lives and build a life they are proud of.',
-    reassurance: 'Every woman starts with a free 20-minute call.',
+    reassurance: 'Booked and paid securely on Topmate.',
 };
+
+// The two ways to work with Anushka, shown right under the hero.
+const offers = [
+    {
+        id: 'guide',
+        icon: BookOpen,
+        kind: 'Guide',
+        meta: 'Digital guide · Instant access',
+        title: 'The Rebirth Reset',
+        badge: 'Best seller',
+        lead: 'A practical guide for ambitious women who have outgrown their current life and are ready to build their next chapter.',
+        points: [
+            'Identify what is no longer working in your life',
+            'Let go of an identity that no longer feels like you',
+            'Get clear on the woman you are becoming',
+            'Turn your vision into a practical 30-day action plan',
+        ],
+        price: '₹299',
+        cta: 'Get the guide',
+        href: TOPMATE.guide,
+    },
+    {
+        id: 'coaching',
+        icon: Video,
+        kind: '1:1 Coaching Call',
+        meta: '60 minutes · Video call',
+        title: 'Rebuild Your Life',
+        badge: 'Popular',
+        lead: 'Your space to reconnect with yourself, understand what is holding you back, and create a roadmap to the woman you want to be.',
+        points: [
+            'For heartbreak, feeling lost, or a life that no longer feels like yours',
+            'Rebuild your confidence and your sense of who you are',
+            'Get clear on who you are meant to become',
+            'Leave with a roadmap for your next chapter',
+        ],
+        price: '₹5,000',
+        cta: 'Book your call',
+        href: TOPMATE.coaching,
+    },
+];
+
+const offerByID = Object.fromEntries(offers.map((offer) => [offer.id, offer]));
 
 // Proof strip under the hero. Items with an href are links.
 const proof = [
@@ -166,9 +214,9 @@ const outcomes = [
 ];
 
 const steps = [
-    { title: 'Apply', text: 'Two minutes, honest answers.' },
-    { title: 'Talk to me', text: 'A free 20-minute video call. We look at where you are and where you want to be.' },
-    { title: 'Begin', text: 'If we are a fit, we decide together how we will work, and we start.' },
+    { title: 'Choose', text: 'Pick the 1:1 coaching call or the Rebirth Reset guide.' },
+    { title: 'Book on Topmate', text: 'Pay securely. When you book the call, you tell me what you want to work on.' },
+    { title: 'Begin', text: 'We meet for 60 minutes on a video call, or you start the guide the same day.' },
 ];
 
 const sectionHeading =
@@ -176,10 +224,31 @@ const sectionHeading =
 
 const pinkSection = 'bg-gradient-to-br from-anushka-50 via-rose-50 to-cream';
 
+const primaryButton =
+    'group inline-flex items-center justify-center gap-3 bg-gradient-to-r from-anushka-500 to-rose-500 hover:from-anushka-600 hover:to-rose-600 text-white font-semibold rounded-full transition-all duration-300';
+
+const secondaryButton =
+    'group inline-flex items-center justify-center gap-3 bg-white/90 hover:bg-white text-anushka-700 font-semibold rounded-full border-2 border-anushka-300 hover:border-anushka-500 transition-all duration-300';
+
+// A link straight to an offer's Topmate page, opened in a new tab.
+function OfferLink({ offer, label, variant = 'primary', className = '' }) {
+    return (
+        <motion.a
+            href={offer.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            className={`${variant === 'primary' ? primaryButton : secondaryButton} ${className}`}
+        >
+            {label ?? offer.cta}
+            <ArrowRight className="w-5 h-5 shrink-0 group-hover:translate-x-1 transition-transform" />
+        </motion.a>
+    );
+}
+
 export default function HomePage() {
     const reduced = useReducedMotion();
-    const [showApplyForm, setShowApplyForm] = useState(false);
-    const applyRef = useRef(null);
 
     /* ── Animation variants ──────────────────────────────────────── */
     const fadeInUp = {
@@ -187,32 +256,39 @@ export default function HomePage() {
         visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } }
     };
 
-    const formReveal = {
-        hidden: { opacity: 0, height: 0, marginTop: 0 },
-        visible: {
-            opacity: 1,
-            height: 'auto',
-            marginTop: 32,
-            transition: { duration: 0.4, ease: 'easeOut' }
-        }
-    };
-
     /* ── Scroll helpers ──────────────────────────────────────────── */
     const scrollToId = (id) => {
         document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
     };
-    const scrollToApply = () => scrollToId('apply-section');
+    const scrollToOffers = () => scrollToId('work-with-me');
 
-    const ApplyButton = ({ className = '', onClick = scrollToApply, showArrow = true }) => (
+    const StartButton = ({ className = '', showArrow = true }) => (
         <motion.button
-            onClick={onClick}
+            onClick={scrollToOffers}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
-            className={`group inline-flex items-center gap-3 bg-gradient-to-r from-anushka-500 to-rose-500 hover:from-anushka-600 hover:to-rose-600 text-white font-semibold rounded-full transition-all duration-300 ${className}`}
+            className={`${primaryButton} ${className}`}
         >
-            Apply for Rebirth
+            Start your Rebirth
             {showArrow && <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />}
         </motion.button>
+    );
+
+    // The two hero buttons go straight to Topmate.
+    const heroOffers = (
+        <>
+            <OfferLink
+                offer={offerByID.coaching}
+                label="Book a 1:1 coaching call"
+                className="py-4 px-8 text-base shadow-[0_8px_32px_rgba(236,72,153,0.38)] hover:shadow-[0_14px_44px_rgba(236,72,153,0.48)]"
+            />
+            <OfferLink
+                offer={offerByID.guide}
+                label={`Get the guide · ${offerByID.guide.price}`}
+                variant="secondary"
+                className="py-[14px] px-8 text-base"
+            />
+        </>
     );
 
     const headlineLines = HERO.headline.map((line) => (
@@ -243,7 +319,7 @@ export default function HomePage() {
                             </button>
                         ))}
                     </nav>
-                    <ApplyButton showArrow={false} className="py-2.5 px-5 text-sm shadow-md" />
+                    <StartButton showArrow={false} className="py-2.5 px-5 text-sm shadow-md" />
                 </div>
             </header>
 
@@ -316,13 +392,15 @@ export default function HomePage() {
                             <p className="text-base text-gray-600 leading-relaxed mb-8 max-w-sm mx-auto">
                                 {HERO.support}
                             </p>
-                            <ApplyButton className="py-[14px] px-9 text-[15px] shadow-[0_8px_30px_rgba(236,72,153,0.35)] hover:shadow-[0_12px_40px_rgba(236,72,153,0.45)]" />
+                            <div className="flex flex-col gap-3 max-w-xs mx-auto">
+                                {heroOffers}
+                            </div>
                             <p className="mt-5 text-sm text-gray-500">{HERO.reassurance}</p>
                             <button
-                                onClick={() => scrollToId('how-it-works')}
+                                onClick={scrollToOffers}
                                 className="mt-3 text-sm text-anushka-600 underline underline-offset-4"
                             >
-                                See how it works
+                                See what is included
                             </button>
                         </motion.div>
                     </div>
@@ -374,16 +452,18 @@ export default function HomePage() {
                                 animate={reduced ? undefined : { opacity: 1, y: 0 }}
                                 transition={{ duration: 0.5, delay: 0.38 }}
                             >
-                                <div className="flex items-center gap-5">
-                                    <ApplyButton className="py-4 px-10 text-base shadow-[0_8px_32px_rgba(236,72,153,0.38)] hover:shadow-[0_14px_44px_rgba(236,72,153,0.48)]" />
-                                    <button
-                                        onClick={() => scrollToId('how-it-works')}
-                                        className="text-sm text-gray-500 hover:text-anushka-500 transition-colors underline underline-offset-4"
-                                    >
-                                        See how it works
-                                    </button>
+                                <div className="flex flex-wrap items-center gap-4">
+                                    {heroOffers}
                                 </div>
-                                <p className="mt-5 text-sm text-gray-500">{HERO.reassurance}</p>
+                                <p className="mt-5 text-sm text-gray-500">
+                                    {HERO.reassurance}{' '}
+                                    <button
+                                        onClick={scrollToOffers}
+                                        className="text-gray-500 hover:text-anushka-500 transition-colors underline underline-offset-4"
+                                    >
+                                        See what is included
+                                    </button>
+                                </p>
                             </motion.div>
 
                         </div>
@@ -420,6 +500,72 @@ export default function HomePage() {
                         );
                     })}
                 </ul>
+            </section>
+
+            {/* ══════════════════════════════════════════════════════════
+                WORK WITH ME — the guide and the 1:1 coaching call
+            ══════════════════════════════════════════════════════════ */}
+            <section id="work-with-me" className={`py-16 md:py-24 scroll-mt-16 ${pinkSection}`}>
+                <div className="container mx-auto px-6">
+                    <motion.div
+                        className="max-w-5xl mx-auto"
+                        variants={fadeInUp}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, amount: 0.1 }}
+                    >
+                        <h2 className={`${sectionHeading} text-center mb-4`}>
+                            Start Your Rebirth
+                        </h2>
+                        <p className="text-center text-lg md:text-xl text-gray-700 leading-relaxed max-w-2xl mx-auto mb-12">
+                            Two ways to begin. Pick the one that feels right for you today.
+                        </p>
+                        <div className="grid md:grid-cols-2 gap-8 md:gap-10">
+                            {offers.map((offer) => {
+                                const Icon = offer.icon;
+                                return (
+                                    <article
+                                        key={offer.id}
+                                        className="relative flex flex-col bg-white rounded-3xl p-7 md:p-9 border border-anushka-200/70 shadow-[0_10px_40px_rgba(236,72,153,0.10)]"
+                                    >
+                                        <span className="absolute -top-3 left-7 bg-gradient-to-r from-anushka-500 to-rose-500 text-white text-xs font-semibold tracking-[0.14em] uppercase px-3 py-1 rounded-full">
+                                            {offer.badge}
+                                        </span>
+                                        <div className="flex items-center gap-3">
+                                            <span className="w-11 h-11 rounded-2xl bg-anushka-50 text-anushka-600 flex items-center justify-center shrink-0">
+                                                <Icon className="w-5 h-5" aria-hidden="true" />
+                                            </span>
+                                            <span className="text-sm font-semibold text-gray-600">{offer.meta}</span>
+                                        </div>
+                                        <p className="mt-6 text-xs font-semibold tracking-[0.18em] uppercase text-anushka-500">
+                                            {offer.kind}
+                                        </p>
+                                        <h3 className="mt-1 text-2xl md:text-3xl font-bold font-serif text-gray-900">
+                                            {offer.title}
+                                        </h3>
+                                        <p className="mt-4 text-lg text-gray-700 leading-relaxed">{offer.lead}</p>
+                                        <ul className="mt-6 space-y-3 flex-1">
+                                            {offer.points.map((point) => (
+                                                <li key={point} className="flex items-start gap-3">
+                                                    <Check className="w-5 h-5 text-anushka-500 mt-1 shrink-0" aria-hidden="true" />
+                                                    <span className="text-gray-700 text-base md:text-lg">{point}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                        <div className="mt-8 pt-6 border-t border-anushka-100 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                                            <p className="text-4xl font-bold text-gray-900 leading-none">{offer.price}</p>
+                                            <OfferLink
+                                                offer={offer}
+                                                className="py-3.5 px-7 text-base shadow-lg hover:shadow-xl"
+                                            />
+                                        </div>
+                                    </article>
+                                );
+                            })}
+                        </div>
+                        <p className="mt-8 text-center text-sm text-gray-500">{HERO.reassurance}</p>
+                    </motion.div>
+                </div>
             </section>
 
             {/* ══════════════════════════════════════════════════════════
@@ -509,7 +655,7 @@ export default function HomePage() {
                             <p className="font-serif text-2xl md:text-3xl text-anushka-700 mb-8">
                                 Just like me.
                             </p>
-                            <ApplyButton className="py-4 px-10 shadow-lg hover:shadow-xl" />
+                            <StartButton className="py-4 px-10 shadow-lg hover:shadow-xl" />
                         </div>
                     </motion.div>
                 </div>
@@ -678,7 +824,7 @@ export default function HomePage() {
                         className="max-w-4xl mx-auto"
                     >
                         <h2 className={`${sectionHeading} text-center mb-12`}>
-                            How to Apply for Rebirth
+                            How It Works
                         </h2>
                         <ol className="grid md:grid-cols-3 gap-8">
                             {steps.map((step, i) => (
@@ -692,7 +838,7 @@ export default function HomePage() {
                             ))}
                         </ol>
                         <div className="mt-12 text-center">
-                            <ApplyButton className="py-4 px-10 shadow-lg hover:shadow-xl" />
+                            <StartButton className="py-4 px-10 shadow-lg hover:shadow-xl" />
                         </div>
                     </motion.div>
                 </div>
@@ -704,51 +850,36 @@ export default function HomePage() {
             <TestimonialsSection />
 
             {/* ══════════════════════════════════════════════════════════
-                8. APPLY FLOW — Multi-step form + Topmate booking
+                8. READY — the two offers, one last time
             ══════════════════════════════════════════════════════════ */}
-            <section id="apply-section" className="py-16 md:py-24 bg-white scroll-mt-16" ref={applyRef}>
-                <div className="container mx-auto px-4">
+            <section id="ready" className="py-16 md:py-24 bg-white scroll-mt-16">
+                <div className="container mx-auto px-6">
                     <motion.div
-                        className="max-w-2xl mx-auto"
+                        className="max-w-2xl mx-auto text-center"
                         variants={fadeInUp}
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, amount: 0.2 }}
                     >
-                        <div className="text-center mb-10">
-                            <h2 className={`${sectionHeading} mb-3`}>
-                                Ready for Your Rebirth?
-                            </h2>
-                            <p className="text-gray-600 text-lg">
-                                Take two minutes and answer honestly. Your free call is the next step.
-                            </p>
+                        <h2 className={`${sectionHeading} mb-3`}>
+                            Ready for Your Rebirth?
+                        </h2>
+                        <p className="text-gray-600 text-lg mb-10">
+                            Book your 1:1 coaching call, or start today with the Rebirth Reset guide.
+                        </p>
+                        <div className="flex flex-col sm:flex-row sm:justify-center gap-4 max-w-xs sm:max-w-none mx-auto">
+                            <OfferLink
+                                offer={offerByID.coaching}
+                                label={`Book your call · ${offerByID.coaching.price}`}
+                                className="py-4 px-8 text-base shadow-lg hover:shadow-xl"
+                            />
+                            <OfferLink
+                                offer={offerByID.guide}
+                                label={`Get the guide · ${offerByID.guide.price}`}
+                                variant="secondary"
+                                className="py-[14px] px-8 text-base"
+                            />
                         </div>
-
-                        {!showApplyForm && (
-                            <div className="text-center">
-                                <ApplyButton
-                                    onClick={() => setShowApplyForm(true)}
-                                    className="py-4 px-10 text-lg shadow-lg hover:shadow-xl"
-                                />
-                            </div>
-                        )}
-
-                        <AnimatePresence>
-                            {showApplyForm && (
-                                <motion.div
-                                    variants={formReveal}
-                                    initial="hidden"
-                                    animate="visible"
-                                    className="overflow-hidden"
-                                >
-                                    <div className="relative rounded-2xl p-[1px] bg-gradient-to-r from-anushka-500/50 via-rose-500/30 to-anushka-600/50">
-                                        <div className="rounded-2xl bg-white/90 backdrop-blur-sm p-4 md:p-6 text-left">
-                                            <RebirthApplication />
-                                        </div>
-                                    </div>
-                                </motion.div>
-                            )}
-                        </AnimatePresence>
                     </motion.div>
                 </div>
             </section>

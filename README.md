@@ -7,7 +7,7 @@ A premium, single-offer authority website designed to position Anushka Jain as a
 This version shifts focus from "freelance services" to a comprehensive transformation program called **Rebirth**.
 
 ### Key Features
-- **Conversational Application Flow**: Replaced standard contact forms with `RebirthApplication`—a guided, 5-step conversational interface that qualifies leads and builds connection. includes Google Sheets integration.
+- **Two Offers, Bought Directly**: The page sells the Rebirth Reset guide and the 1:1 coaching call, each linking straight to its Topmate page. Offer details and prices live in `src/app/HomePageClient.jsx` and must match Topmate. (The earlier free-call application form, `RebirthApplication`, is no longer shown on the page.)
 - **Single-Offer Positioning**: All content is streamlined to promote one core offer: *Rebirth*.
 - **Outcome-Driven Narrative**: Copy focuses on "Identity", "Narrative", and "Legacy" rather than tactical deliverables.
 - **Premium UX**: Framer Motion animations, glassmorphism effects, and a grounded, confident design system.
