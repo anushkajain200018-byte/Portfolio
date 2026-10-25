@@ -60,6 +60,9 @@ export default function TestimonialsSection() {
         <p className="text-sm text-gray-500 mb-12">Shared without names, to protect their privacy.</p>
 
         {hasTestimonials && (
+          <h3 className="text-xl md:text-2xl font-bold text-gray-800 font-serif mb-6">What people say on Topmate</h3>
+        )}
+        {hasTestimonials && (
           <Carousel className="w-full max-w-2xl mx-auto mb-10">
             <CarouselContent>
               {testimonials.map((testimonial, index) => (
