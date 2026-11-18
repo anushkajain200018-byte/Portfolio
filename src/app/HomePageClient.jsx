@@ -36,11 +36,11 @@ const NAV_LINKS = [
 ];
 
 const HERO = {
-    eyebrow: 'Rebirth Club · For ambitious women',
+    eyebrow: 'Rebirth Club · For anyone ready to start again',
     // Two lines on purpose, so the sentence never breaks mid-phrase.
     headline: ['Turn your pain', 'into power.'],
     support:
-        'Rebirth means reborn. We help ambitious women rebuild their lives and build a life they are proud of.',
+        'Rebirth means reborn. Whoever you are and wherever you are starting from, we help you rebuild your life and build one you are proud of.',
     reassurance: 'Booked and paid securely on Topmate.',
 };
 
@@ -53,11 +53,11 @@ const offers = [
         meta: 'Digital guide · Instant access',
         title: 'The Rebirth Reset',
         badge: 'Best seller',
-        lead: 'A practical guide for ambitious women who have outgrown their current life and are ready to build their next chapter.',
+        lead: 'A practical guide for anyone who has outgrown their current life and is ready to build their next chapter.',
         points: [
             'Identify what is no longer working in your life',
             'Let go of an identity that no longer feels like you',
-            'Get clear on the woman you are becoming',
+            'Get clear on the person you are becoming',
             'Turn your vision into a practical 30-day action plan',
         ],
         price: '₹299',
@@ -71,7 +71,7 @@ const offers = [
         meta: '60 minutes · Video call',
         title: 'Rebuild Your Life',
         badge: 'Popular',
-        lead: 'Your space to reconnect with yourself, understand what is holding you back, and create a roadmap to the woman you want to be.',
+        lead: 'Your space to reconnect with yourself, understand what is holding you back, and create a roadmap to the person you want to be.',
         points: [
             'For heartbreak, feeling lost, or a life that no longer feels like yours',
             'Rebuild your confidence and your sense of who you are',
@@ -91,12 +91,12 @@ const proof = [
     { stat: '58,000+', label: 'on LinkedIn', href: 'https://www.linkedin.com/in/anushka-jain-408b81211/' },
     { stat: '39,000+', label: 'on Instagram', href: 'https://www.instagram.com/anushkajaiinn/' },
     { stat: '4.9 / 5', label: 'on Topmate', href: 'https://topmate.io/anushka_jain10/' },
-    { stat: '200+', label: 'women spoken to, one to one' },
+    { stat: '200+', label: 'people spoken to, one to one' },
 ];
 
 const whatIs = {
     lead: 'Rebirth means reborn.',
-    body: 'Rebirth Club is for ambitious women who want more from life and do not know how to start. We help you rebuild your life and become the version of yourself you have always dreamed of.',
+    body: 'Rebirth Club is for anyone who wants more from life and does not know how to start. We help you rebuild your life and become the version of yourself you have always dreamed of.',
 };
 
 const pillars = [
@@ -147,7 +147,7 @@ const about = {
         'It was a time of extreme isolation and suffering. I was losing everyone around me. And then I saw a version of myself, and I knew that this is exactly who I am, behind all the suffering and pain.',
         'I knew I was born with a purpose.',
         'Slowly, I transformed, and things started changing in me. My intuition became so powerful. You will not believe it, but I started to manifest a life I could never have imagined. Coming from a small town, it all felt impossible. Yet I built my career, my identity, my confidence and my own money, and a lifestyle that nobody around me back home was living.',
-        'In 2025, I had an intuition about starting Rebirth. I knew I wanted to change women’s lives, because so many women go through immense pain and suffering without realising that pain happens for a reason: to make them the most powerful version of themselves.',
+        'In 2025, I had an intuition about starting Rebirth. I knew I wanted to change lives, because so many people, and so many women especially, go through immense pain and suffering without realising that pain happens for a reason: to make them the most powerful version of themselves.',
         'In August 2026, it finally came into place.',
         'This is my story, and this is how Rebirth Club was born.',
     ],
@@ -845,7 +845,7 @@ export default function HomePage() {
             </section>
 
             {/* ══════════════════════════════════════════════════════════
-                7. WOMEN WHO COME TO REBIRTH — stories and the Topmate rating
+                7. PEOPLE WHO COME TO REBIRTH — stories and the Topmate rating
             ══════════════════════════════════════════════════════════ */}
             <TestimonialsSection />
 

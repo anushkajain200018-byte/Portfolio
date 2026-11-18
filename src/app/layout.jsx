@@ -5,10 +5,10 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 export const metadata = {
   title: 'Rebirth Club | Turn your pain into power',
   description:
-    'Rebirth means reborn. Rebirth Club helps ambitious women rebuild their lives and build a life they are proud of.',
+    'Rebirth means reborn. Rebirth Club helps anyone who wants more from life rebuild it and build a life they are proud of.',
   openGraph: {
     title: 'Rebirth Club | Turn your pain into power',
-    description: 'For ambitious women who want more from life and do not know how to start.',
+    description: 'For anyone who wants more from life and does not know how to start.',
     type: 'website',
   },
   icons: {
