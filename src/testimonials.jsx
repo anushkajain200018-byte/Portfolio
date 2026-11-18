@@ -1,4 +1,4 @@
-// Testimonials shown in the "Women Who Come to Rebirth" section.
+// Testimonials shown in the "People Who Come to Rebirth" section.
 //
 // These are real reviews left on Anushka's Topmate page
 // (https://topmate.io/anushka_jain10/), copied exactly as written.
